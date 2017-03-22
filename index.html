@@ -9,12 +9,9 @@
   -->
 
 
-  <script src="https://code.jquery.com/jquery-2.2.3.js"></script>  
-
-  <!--
-  TODO 2a
-  add link to Bootstrap CDN
-  -->
+  <script src="https://code.jquery.com/jquery-2.2.3.js"></script>
+  <!-- Latest compiled and minified CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
 
   <link rel="stylesheet" href="css/styles.css"/>
 
@@ -22,21 +19,16 @@
 </head>
 <body>
 
-  <!--
-  TODO 2b
-  give the header a class of "jumbotron"
-  give the inner paragraph a class of "text-muted"
-  -->
-  <header>
+  <header class="jumbotron">
     <h1>FlickList</h1>
-    <p>Keep a list of all the movies you've been meaning to watch.</p>
+    <p class="text-muted">Keep a list of all the movies you've been meaning to watch.</p>
   </header>
 
 
   <div class="main-content">
     <!--
     TODO 3a
-    put the rest of the content (both sections) inside a div with class "row", 
+    put the rest of the content (both sections) inside a div with class "row",
     and then add the class "container-fluid" to this div (declared above).
     Then, give each section a class of "col-?-?" (fill in the question marks).
     The watchlist and browse list should appear side by side,
@@ -52,11 +44,7 @@
         <hr/>
       </header>
 
-      <!-- 
-      TODO 2f
-      Give this list a class of "list-inline"
-      -->
-      <ul></ul>
+      <ul class="list-inline"></ul>
     </section>
 
     <section id="section-browse">
@@ -70,20 +58,26 @@
         "input-group", "form-control", "input-group-btn", "btn", "btn-primary"
         -->
         <form id="form-search">
-          <input type="text" name="query"/>
-          <input type="submit" value="Search By Title"/>
+            <div class="input-group">
+                <input type="text" class="form-control" name="query" placeholder="Search for movies" />
+                <span class="input-group-btn">
+                    <input class="btn btn-primary" type="submit" value="Search By Title" />
+                </span>
+            </div>
+
         </form>
 
       </header>
 
-      <!-- 
+      <!--
       TODO 2d
       Style this list to look like the demo.
       You will also have to make change in flicklist.js inside the render function
       Use the following styles:
-      "list-group", "list-group-item", "btn", "btn-primary", 
+      "list-group", "list-group-item", "btn", "btn-primary",
       -->
-      <ul></ul>
+
+      <ul class="list-group"></ul>
     </section>
 
   </div>
@@ -97,5 +91,5 @@
     });
   </script>
 
-</body> 
+</body>
 </html>
