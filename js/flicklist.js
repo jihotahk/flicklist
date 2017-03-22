@@ -70,8 +70,7 @@ function render() {
     var title = $("<p></p>").text(movie.original_title);
     var itemView = $("<li></li>")
       .append(title)
-      // TODO 3
-      // give itemView a class attribute of "item-watchlist"
+      .addClass('item-watchlist');
 
     $("#section-watchlist ul").append(itemView);
   });
