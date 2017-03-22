@@ -40,10 +40,10 @@ ul {
 
 button, input[type="submit"] {
 	border-width: 0px;
-	/*
-	TODO 7
-	give these buttons some padding, and color them orange with white text
-	*/
+	padding: 10px;
+	background: orange;
+	color:white;
+	border-radius: 3px;
 }
 
 button:disabled {
