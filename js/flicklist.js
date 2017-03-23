@@ -73,15 +73,14 @@ function render() {
   // insert watchlist items
   model.watchlistItems.forEach(function(movie) {
     var title = $("<h6></h6>").text(movie.original_title);
-
-    // TODO 1
-    // add an "I watched it" button and append it below the title
-    // Clicking should remove this movie from the watchlist and re-render
-    var watchButton = $('<button></button>').text('I watched it');
-    watchButton.click(function() {
-        //remove item from array
-    })
-    watchButton.appendTo(title);
+    var watchedButton = $('<button></button>')
+        .text('I watched it')
+        .addClass('btn btn-danger')
+        .click( function() {
+            var location = model.watchlistItems.indexOf(movie);
+            model.watchlistItems.splice(location, 1);
+            render();
+        });
 
     // TODO 2i
     // apply the classes "btn btn-danger" to the "I watched it button"
@@ -94,6 +93,7 @@ function render() {
     // re-implement the li as a bootstrap panel with a heading and a body
     var itemView = $("<li></li>")
       .append(title)
+      .append(watchedButton)
       .attr("class", "item-watchlist");
 
     $("#section-watchlist ul").append(itemView);
