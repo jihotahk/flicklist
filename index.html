@@ -2,6 +2,7 @@
 <html>
 <head>
   <meta charset="utf-8"/>
+  <meta name=viewport content="width=device-width, initial-scale=1">
 
   <!--
   TODO 3b
@@ -25,7 +26,7 @@
   </header>
 
 
-  <div class="main-content">
+  <div class="main-content container-fluid">
     <!--
     TODO 3a
     put the rest of the content (both sections) inside a div with class "row",
@@ -37,48 +38,51 @@
     unless the user is on a tablet or mobile phone, in which case, each section should
     fill the entire width, with the watchlist first and the browse list below.
     -->
+    <div class='row'>
 
-    <section id="section-watchlist">
-      <header>
-        <h2>My Watchlist</h2>
-        <hr/>
-      </header>
+        <section id="section-watchlist" class='col-md-5'>
+          <header>
+            <h2>My Watchlist</h2>
+            <hr/>
+          </header>
 
-      <ul class="list-inline"></ul>
-    </section>
+          <ul class="list-inline"></ul>
+        </section>
 
-    <section id="section-browse">
-      <header>
-        <h2>Browse Movies</h2>
+        <section id="section-browse" class='col-md-7'>
+          <header>
+            <h2>Browse Movies</h2>
 
-        <!--
-        TODO 2e
-        Style this form and its inputs to look like the demo.
-        Use the following classes (google them and find some examples):
-        "input-group", "form-control", "input-group-btn", "btn", "btn-primary"
-        -->
-        <form id="form-search">
-            <div class="input-group">
-                <input type="text" class="form-control" name="query" placeholder="Search for movies" />
-                <span class="input-group-btn">
-                    <input class="btn btn-primary" type="submit" value="Search By Title" />
-                </span>
-            </div>
+            <!--
+            TODO 2e
+            Style this form and its inputs to look like the demo.
+            Use the following classes (google them and find some examples):
+            "input-group", "form-control", "input-group-btn", "btn", "btn-primary"
+            -->
+            <form id="form-search">
+                <div class="input-group">
+                    <input type="text" class="form-control" name="query" placeholder="Search for movies" />
+                    <span class="input-group-btn">
+                        <input class="btn btn-primary" type="submit" value="Search By Title" />
+                    </span>
+                </div>
 
-        </form>
+            </form>
 
-      </header>
+          </header>
 
-      <!--
-      TODO 2d
-      Style this list to look like the demo.
-      You will also have to make change in flicklist.js inside the render function
-      Use the following styles:
-      "list-group", "list-group-item", "btn", "btn-primary",
-      -->
+          <!--
+          TODO 2d
+          Style this list to look like the demo.
+          You will also have to make change in flicklist.js inside the render function
+          Use the following styles:
+          "list-group", "list-group-item", "btn", "btn-primary",
+          -->
 
-      <ul class="list-group"></ul>
-    </section>
+          <ul class="list-group"></ul>
+        </section>
+    </div>
+
 
   </div>
 

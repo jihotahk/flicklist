@@ -11,20 +11,29 @@ Give the Watchlist items some styles:
 - a little bit of margin on the bottom and right edges
 - no padding
 */
-
+#section-watchlist li{
+	padding: 0;
+	margin: 0 4% 4% 0;
+	width: 160px;
+}
 
 /*
 TODO 2j
 The "I watched it" button should fill the entire width of its container,
 and should be 10px below the neighbor element above it
 */
-
+#section-watchlist button{
+	width: 100%;
+	margin-top: 10px;
+}
 
 /*
 TODO 3c
 Apply text-align: center; to the watchlist
 */
-
+#section-watchlist ul{
+	text-align: center;
+}
 
 
 .main-content {
