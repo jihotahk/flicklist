@@ -45,3 +45,8 @@ section header {
 section {
 	padding: 2%;
 }
+
+#browse-carousel {
+    max-width: 300px;
+    margin: auto;
+}

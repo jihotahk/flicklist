@@ -4,20 +4,20 @@ var model = {
   watchlistItems: [],
   browseItems: []
 
-  // TODO 
+  // TODO
   // add a property for the current active movie index
 }
 
 
 var api = {
   root: "https://api.themoviedb.org/3",
-  token: "8e888fa39ec243e662e1fb738c42ae99", // TODO 0 add your api key
+  token: "9b90763f6589aec565f60adb21f2bb07",
   /**
    * Given a movie object, returns the url to its poster image
    */
   posterUrl: function(movie) {
     var baseImageUrl = "http://image.tmdb.org/t/p/w300/";
-    return baseImageUrl + movie.poster_path; 
+    return baseImageUrl + movie.poster_path;
   }
 }
 
@@ -47,7 +47,7 @@ function discoverMovies(callback, keywords) {
 
 
 /**
- * Makes an AJAX request to the /search/keywords endpoint of the API, using the 
+ * Makes an AJAX request to the /search/keywords endpoint of the API, using the
  * query string that was passed in
  *
  * if successful, invokes the supplied callback function, passing in
@@ -63,13 +63,13 @@ function searchMovies(query, callback) {
     },
     success: function(response) {
       console.log(response);
-    
+
       var keywordIDs = response.results.map(function(keywordObj) {
         return keywordObj.id;
       });
       var keywordsString = keywordIDs.join("|");
       console.log(keywordsString);
-      
+
       discoverMovies(callback, keywordsString);
     }
   });
@@ -83,12 +83,12 @@ function render() {
 
   // clear everything
   $("#section-watchlist ul").empty();
-  $("#section-browse ul").empty();
+  $("#section-browse .list-group").empty();
 
   // render watchlist items
   model.watchlistItems.forEach(function(movie) {
     var title = $("<h6></h6>").text(movie.original_title);
-      
+
     // movie poster
     var poster = $("<img></img>")
       .attr("src", api.posterUrl(movie))
@@ -108,7 +108,7 @@ function render() {
     var panelHeading = $("<div></div>")
       .attr("class", "panel-heading")
       .append(title);
-    
+
     // panel body contains the poster and button
     var panelBody = $("<div></div>")
       .attr("class", "panel-body")
@@ -140,9 +140,9 @@ function render() {
     var itemView = $("<li></li>")
       .attr("class", "list-group-item")
       .append( [title, overview, button] );
-      
+
     // append the itemView to the list
-    $("#section-browse ul").append(itemView);
+    $("#section-browse .list-group").append(itemView);
   });
 }
 
