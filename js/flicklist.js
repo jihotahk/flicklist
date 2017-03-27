@@ -120,19 +120,16 @@ function render() {
     });
 
     // render browse items
-    var activeMovie = model.browseItems[model.activeMovieIndex]
+    var activeMovie = model.browseItems[model.activeMovieIndex];
 
     $('.browse-info h4').text(activeMovie.original_title);
     $('.browse-info p').text(activeMovie.overview);
 
-    // button for adding to watchlist
-    $("#add-to-watchlist")
-        .click(function() {
-            var clickMovie = model.browseItems[model.activeMovieIndex]
-            model.watchlistItems.push(clickMovie);
-            console.log(clickMovie.original_title);
-            render();
-        })
+    // add handler on button for adding to watchlist
+    $('#add-to-watchlist').unbind().click(function() {
+        model.watchlistItems.push(model.browseItems[model.activeMovieIndex]);
+        render();
+    })
         // if the active movie already exists, disable button
         .prop("disabled", model.watchlistItems.indexOf(activeMovie) !== -1);
 
