@@ -11,7 +11,7 @@
 #section-watchlist li {
 	padding: 0px;
 	margin: 0px 4% 4% 0px;
-	width: 140px;
+	width: 160px;
 }
 
 
@@ -31,11 +31,19 @@
 }
 
 #section-browse {
-	background: black;
+	background: #222;
+}
+
+#section-browse ul{
+	padding-left: 0;
 }
 
 #section-browse form {
 	margin-bottom: 2%;
+}
+
+#section-browse h2{
+	color: #f3f3f3;
 }
 
 section header {
@@ -49,4 +57,13 @@ section {
 #browse-carousel {
     max-width: 300px;
     margin: auto;
+}
+#add-to-watchlist{
+	width: 100%;
+}
+
+.well{
+	background: rgb(242, 85, 85);
+	border: none;
+	color: white;
 }
