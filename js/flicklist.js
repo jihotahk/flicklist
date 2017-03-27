@@ -79,70 +79,65 @@ function searchMovies(query, callback) {
  */
 function render() {
 
-  // clear everything
-  $("#section-watchlist ul").empty();
-  $("#section-browse .list-group").empty();
+    // clear everything
+    $("#section-watchlist ul").empty();
+    $("#section-browse .list-group").empty();
 
-  // render watchlist items
-  model.watchlistItems.forEach(function(movie) {
-    var title = $("<h6></h6>").text(movie.original_title);
+    // render watchlist items
+    model.watchlistItems.forEach(function(movie) {
 
-    // movie poster
-    var poster = $("<img></img>")
-      .attr("src", api.posterUrl(movie))
-      .attr("class", "img-responsive");
+        var title = $("<h6></h6>").text(movie.original_title);
 
-    // "I watched it" button
-    var button = $("<button></button>")
-      .text("I watched it")
-      .attr("class", "btn btn-danger")
-      .click(function() {
-        var index = model.watchlistItems.indexOf(movie);
-        model.watchlistItems.splice(index, 1);
-        render();
-      });
+        // movie poster
+        var poster = $("<img></img>")
+          .attr("src", api.posterUrl(movie))
+          .attr("class", "img-responsive");
 
-    // panel heading contains the title
-    var panelHeading = $("<div></div>")
-      .attr("class", "panel-heading")
-      .append(title);
+        // "I watched it" button
+        var button = $("<button></button>")
+          .text("I watched it")
+          .attr("class", "btn btn-danger")
+          .click(function() {
+            var index = model.watchlistItems.indexOf(movie);
+            model.watchlistItems.splice(index, 1);
+            render();
+          });
 
-    // panel body contains the poster and button
-    var panelBody = $("<div></div>")
-      .attr("class", "panel-body")
-      .append( [poster, button] );
+        // panel heading contains the title
+        var panelHeading = $("<div></div>")
+          .attr("class", "panel-heading")
+          .append(title);
 
-    // list item is a panel, contains the panel heading and body
-    var itemView = $("<li></li>")
-      .append( [panelHeading, panelBody] )
-      .attr("class", "panel panel-default");
+        // panel body contains the poster and button
+        var panelBody = $("<div></div>")
+          .attr("class", "panel-body")
+          .append( [poster, button] );
 
-    $("#section-watchlist ul").append(itemView);
-  });
+        // list item is a panel, contains the panel heading and body
+        var itemView = $("<li></li>")
+          .append( [panelHeading, panelBody] )
+          .attr("class", "panel panel-default");
 
-  // render browse items
-  model.browseItems.forEach(function(movie) {
-    var title = $("<h4></h4>").text(movie.original_title);
-    var overview = $("<p></p>").text(movie.overview);
+        $("#section-watchlist ul").append(itemView);
+    });
+
+    // render browse items
+    var activeMovie = model.browseItems[model.activeMovieIndex]
+    console.log(activeMovie.original_title);
+    $('.browse-info h4').text(activeMovie.original_title);
+    $('.browse-info p').text(activeMovie.overview);
 
     // button for adding to watchlist
-    var button = $("<button></button>")
-      .text("Add to Watchlist")
-      .attr("class", "btn btn-primary")
-      .click(function() {
-        model.watchlistItems.push(movie);
-        render();
-      })
-      .prop("disabled", model.watchlistItems.indexOf(movie) !== -1);
+    $("#add-to-watchlist")
+        .click(function() {
+            model.watchlistItems.push(activeMovie);
+            render();
+        })
+        // if the active movie already exists, disable button
+        .prop("disabled", model.watchlistItems.indexOf(activeMovie) !== -1);
 
-    var itemView = $("<li></li>")
-      .attr("class", "list-group-item")
-      .append( [title, overview, button] );
-
-    // append the itemView to the list
-    $("#section-browse .list-group").append(itemView);
-  });
-}
+      //
+};
 
 
 // When the HTML document is ready, we call the discoverMovies function,

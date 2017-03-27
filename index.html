@@ -1,127 +1,131 @@
 <!DOCTYPE html>
 <html>
+
 <head>
-  <meta charset="utf-8"/>
-  <meta name=viewport content="width=device-width, initial-scale=1">
+    <meta charset="utf-8" />
+    <meta name=viewport content="width=device-width, initial-scale=1">
 
-  <script src="https://code.jquery.com/jquery-2.2.3.js"></script>
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
-  <link rel="stylesheet" href="css/styles.css"/>
+    <script src="https://code.jquery.com/jquery-2.2.3.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="css/styles.css" />
 
-  <title>FlickList</title>
+    <title>FlickList</title>
 </head>
+
 <body>
 
 
-  <header class="jumbotron">
-    <h1>FlickList</h1>
-    <p class="text-muted">Keep a list of all the movies you've been meaning to watch.</p>
-  </header>
+    <header class="jumbotron">
+        <h1>FlickList</h1>
+        <p class="text-muted">Keep a list of all the movies you've been meaning to watch.</p>
+    </header>
 
 
-  <div class="main-content">
-      <div class='row'>
-          <section id="section-watchlist">
-            <header>
-              <h2>My Watchlist</h2>
-              <hr/>
-            </header>
+    <section class="main-content">
 
-            <ul class="list-inline"></ul>
-          </section>
-      </div>
+        <!-- Watchlist -->
+        <div class='row'>
+            <section id="section-watchlist">
+                <header>
+                    <h2>My Watchlist</h2>
+                    <hr/>
+                </header>
 
-      <div class='row'>
-          <section id="section-browse" class='container-fluid'>
+                <ul class="list-inline"></ul>
+            </section>
+        </div>
 
-            <div class='col-sm-8'>
-                <div class='well'>
-                    <div class='row'>
-                        <div class='col-sm-7 browse-info'>
-                            <h4>Twilight</h4>
-                            <hr />
-                            <p>
-                                When Bella Swan moves to a small town in the Pacific Northwest to live with her father, she starts school and meets the reclusive Edward Cullen, a mysterious classmate who reveals himself to be a 108-year-old vampire. Despite Edward's repeated cautions, Bella can't help but fall in love with him, a fatal move that endangers her own life when a coven of bloodsuckers try to challenge the Cullen clan.
-                            </p>
-                        </div>
-                        <div class='col-sm-5'>
+        <!-- Browse and Search -->
+        <div class='row'>
+            <section id="section-browse" class='container-fluid'>
 
-                            <!-- Start the carousel -->
-                            <div id="browse-carousel" class="carousel slide" data-ride="carousel">
+                <!-- Right Section -->
+                <div class='col-sm-8'>
+                    <div class='well'>
+                        <div class='row'>
 
-                              <!-- Wrapper for slides -->
-                              <ul class="carousel-inner" role="listbox">
-                                <li class="item active">
-                                  <img src="https://pbs.twimg.com/profile_images/378800000576832113/3e69602eab961fd19b89cc65ea9bd2e8.jpeg">
-                                </li>
-
-                                <li class="item">
-                                  <img src="http://img.moviepostershop.com/titanic-movie-poster-1997-1020339699.jpg">
-                                </li>
-
-                                <li class="item">
-                                  <img src="https://s-media-cache-ak0.pinimg.com/736x/69/cc/89/69cc89ce76e6a4c762730c2024241880.jpg">
-                                </li>
-                              </ul>
-
-                              <!-- Left and right controls -->
-                              <a class="left carousel-control" href="#browse-carousel" role="button" data-slide="prev">
-                                <span class="glyphicon glyphicon-chevron-left"></span>
-                              </a>
-                              <a class="right carousel-control" href="#browse-carousel" role="button" data-slide="next">
-                                <span class="glyphicon glyphicon-chevron-right"></span>
-                              </a>
+                            <!-- Browse Movie Info Title / Desc -->
+                            <div class='col-sm-7 browse-info'>
+                                <h4>Twilight</h4>
+                                <hr />
+                                <p>
+                                    When Bella Swan moves to a small town in the Pacific Northwest to live with her father, she starts school and meets the reclusive Edward Cullen, a mysterious classmate who reveals himself to be a 108-year-old vampire. Despite Edward's repeated cautions,
+                                    Bella can't help but fall in love with him, a fatal move that endangers her own life when a coven of bloodsuckers try to challenge the Cullen clan.
+                                </p>
                             </div>
 
-                            <!-- <img class='img-responsive' src='https://pbs.twimg.com/profile_images/378800000576832113/3e69602eab961fd19b89cc65ea9bd2e8.jpeg' /> -->
-                            <button class='btn btn-default' id="add-to-watchlist">Add to Watchlist</button>
+                            <!-- Browse Movie Carousel -->
+                            <div class='col-sm-5'>
+                                <div id="browse-carousel" class="carousel slide" data-ride="carousel">
+
+                                    <!-- Wrapper for slides -->
+                                    <ul class="carousel-inner" role="listbox">
+                                        <li class="item active">
+                                            <img src="https://pbs.twimg.com/profile_images/378800000576832113/3e69602eab961fd19b89cc65ea9bd2e8.jpeg">
+                                        </li>
+
+                                        <li class="item">
+                                            <img src="http://img.moviepostershop.com/titanic-movie-poster-1997-1020339699.jpg">
+                                        </li>
+
+                                        <li class="item">
+                                            <img src="https://s-media-cache-ak0.pinimg.com/736x/69/cc/89/69cc89ce76e6a4c762730c2024241880.jpg">
+                                        </li>
+                                    </ul>
+
+                                    <!-- Left and right controls -->
+                                    <a class="left carousel-control" href="#browse-carousel" role="button" data-slide="prev">
+                                        <span class="glyphicon glyphicon-chevron-left"></span>
+                                    </a>
+                                    <a class="right carousel-control" href="#browse-carousel" role="button" data-slide="next">
+                                        <span class="glyphicon glyphicon-chevron-right"></span>
+                                    </a>
+                                </div>
+
+                                <!-- <img class='img-responsive' src='https://pbs.twimg.com/profile_images/378800000576832113/3e69602eab961fd19b89cc65ea9bd2e8.jpeg' /> -->
+                                <button class='btn btn-default' id="add-to-watchlist">Add to Watchlist</button>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
 
-            <div class='col-sm-4'>
-                <header>
-                  <h2>Browse Movies</h2>
-                </header>
+                <!-- Left Section -->
+                <div class='col-sm-4'>
+                    <header>
+                        <h2>Browse Movies</h2>
+                    </header>
 
-                <form id="form-search">
-                  <div class="input-group">
-                    <input type="text" class="form-control" name="query"/>
-                    <span class="input-group-btn">
+                    <form id="form-search">
+                        <div class="input-group">
+                            <input type="text" class="form-control" name="query" />
+                            <span class="input-group-btn">
                       <input type="submit" class="btn btn-primary" value="Search By Topic"/>
                     </span>
-                  </div>
-                </form>
+                        </div>
+                    </form>
+                </div>
 
-                <!--
-                TODO
-                implement a carousel inside this section
-                You can incorporate this <ul> as the .carousel-inner
-                -->
-                <ul class="list-group"></ul>
-            </div>
+            </section>
+        </div>
+    </section>
 
-          </section>
-      </div>
-  </div>
+    <script src="js/flicklist.js"></script>
+    <script>
+        $("#form-search").submit(function(evt) {
+            evt.preventDefault();
+            var query = $("#form-search input[name=query]").val();
+            searchMovies(query, render);
+        });
 
-  <script src="js/flicklist.js"></script>
-  <script>
-    $("#form-search").submit(function(evt) {
-      evt.preventDefault();
-      var query = $("#form-search input[name=query]").val();
-      searchMovies(query, render);
-    });
-
-    $("#browse-carousel").on("slid.bs.carousel", function() {
-      console.log("the carousel just slid!");
-      var newIndex = $("#browse-carousel").find(".active").index();
-      // TODO
-      // update the model and then re-render
-    });
-  </script>
+        $("#browse-carousel").on("slid.bs.carousel", function() {
+            console.log("the carousel just slid!");
+            var newIndex = $("#browse-carousel").find(".active").index();
+            // TODO
+            // update the model and then re-render
+        });
+    </script>
 
 </body>
+
 </html>
