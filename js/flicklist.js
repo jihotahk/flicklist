@@ -60,13 +60,11 @@ function searchMovies(query, callback) {
       query: query
     },
     success: function(response) {
-      console.log(response);
 
       var keywordIDs = response.results.map(function(keywordObj) {
         return keywordObj.id;
       });
       var keywordsString = keywordIDs.join("|");
-      console.log(keywordsString);
 
       discoverMovies(callback, keywordsString);
     }
@@ -81,7 +79,7 @@ function render() {
 
     // clear everything
     $("#section-watchlist ul").empty();
-    $("#section-browse .list-group").empty();
+    $(".carousel-inner").empty();
 
     // render watchlist items
     model.watchlistItems.forEach(function(movie) {
@@ -123,20 +121,32 @@ function render() {
 
     // render browse items
     var activeMovie = model.browseItems[model.activeMovieIndex]
-    console.log(activeMovie.original_title);
+
     $('.browse-info h4').text(activeMovie.original_title);
     $('.browse-info p').text(activeMovie.overview);
 
     // button for adding to watchlist
     $("#add-to-watchlist")
         .click(function() {
-            model.watchlistItems.push(activeMovie);
+            var clickMovie = model.browseItems[model.activeMovieIndex]
+            model.watchlistItems.push(clickMovie);
+            console.log(clickMovie.original_title);
             render();
         })
         // if the active movie already exists, disable button
         .prop("disabled", model.watchlistItems.indexOf(activeMovie) !== -1);
 
-      //
+    // fill carousel with posters
+    var posters = model.browseItems.map(function(movie) {
+        // return a list item with an img inside
+        var posterImg = $('<img />').attr('src', api.posterUrl(movie));
+        var posterItem = $('<li class="item"></li>').append(posterImg);
+        return posterItem
+    });
+
+    $(".carousel-inner").append(posters);
+    posters[model.activeMovieIndex].addClass("active");
+
 };
 
 

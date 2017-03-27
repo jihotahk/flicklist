@@ -61,17 +61,6 @@
 
                                     <!-- Wrapper for slides -->
                                     <ul class="carousel-inner" role="listbox">
-                                        <li class="item active">
-                                            <img src="https://pbs.twimg.com/profile_images/378800000576832113/3e69602eab961fd19b89cc65ea9bd2e8.jpeg">
-                                        </li>
-
-                                        <li class="item">
-                                            <img src="http://img.moviepostershop.com/titanic-movie-poster-1997-1020339699.jpg">
-                                        </li>
-
-                                        <li class="item">
-                                            <img src="https://s-media-cache-ak0.pinimg.com/736x/69/cc/89/69cc89ce76e6a4c762730c2024241880.jpg">
-                                        </li>
                                     </ul>
 
                                     <!-- Left and right controls -->
@@ -83,7 +72,6 @@
                                     </a>
                                 </div>
 
-                                <!-- <img class='img-responsive' src='https://pbs.twimg.com/profile_images/378800000576832113/3e69602eab961fd19b89cc65ea9bd2e8.jpeg' /> -->
                                 <button class='btn btn-default' id="add-to-watchlist">Add to Watchlist</button>
                             </div>
                         </div>
@@ -119,10 +107,9 @@
         });
 
         $("#browse-carousel").on("slid.bs.carousel", function() {
-            console.log("the carousel just slid!");
             var newIndex = $("#browse-carousel").find(".active").index();
-            // TODO
-            // update the model and then re-render
+            model.activeMovieIndex = newIndex;
+            render();
         });
     </script>
 
